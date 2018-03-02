@@ -1,5 +1,6 @@
 .claim
   +padding(5)
+  +padding-top(5)
   +font-size(40px)
   +heading-font-family
   font-weight: 400
@@ -7,3 +8,13 @@
   line-height: 1.2em
   font-style: italic
   color: $gray-color
+
+  +at-breakpoint(desk)
+    +padding-top(3)
+
+.claim__incipit
+  +heading-font-family
+  font-weight: 400
+  color: $gray-color
+  font-style: italic
+  +margin-bottom(2)

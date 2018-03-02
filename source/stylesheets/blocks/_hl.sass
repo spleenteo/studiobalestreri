@@ -1,0 +1,23 @@
+// Highlights
+// Show an article in a short way
+
+.hl
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  text-decoration: none
+  +vertical-padding(1)
+  border-bottom: 1px solid $border-color
+
+.hl__image
+  flex: 1 0 auto
+  margin-left: 15px
+  img
+    border-radius: 50%
+
+.hl__content
+.hl__title
+.hl__date
+  +sans-font-family
+  +margin-bottom(.5)
+  +font-size(smallprint)

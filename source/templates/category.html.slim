@@ -1,0 +1,18 @@
+
+h1.claim = category.name
+
+.wrap
+  p.claim__incipit = category.description
+  .page
+    - dato.articles.select{|a| a.categories.include?(category)}.sort_by(&:pub_date).reverse.each do |article|
+      = link_to "/articles/#{article.slug}",
+        class: "hl" do
+
+
+        .hl__content
+          .hl__date  = article.pub_date.strftime('%d, %b %Y')
+          .hl__title = article.title
+
+        - if article.featured_image.present?
+          .hl__image
+            = image_tag article.featured_image.file.width(50).height(50).fit("crop").crop("faces").format('pjpg').to_url, class: "article-box__image"

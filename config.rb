@@ -51,16 +51,13 @@ dato.tap do |dato|
     per_page: 5
   )
 
-  # paginate(
-  #        dato.products.sort_by(&:name),
-  #        "/#{locale}/#{dato.products_page.slug}",
-  #        "/templates/products_page.html",
-  #        suffix: "/:num/index",
-  #        per_page: 5,
-  #        locals: { page: dato.products_page },
-  #        locale: locale
-  #      )
-
+  dato.article_categories.values.each do |category|
+    proxy(
+      "/categories/#{category.slug}/index.html",
+      "/templates/category.html",
+      locals: { category: category }
+    )
+  end
 end
 
 

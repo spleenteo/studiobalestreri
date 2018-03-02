@@ -18,6 +18,7 @@
       .side-bar__widget__title Categorie
       .side-bar__widget__body
         ul
+          li = link_to "Tutti", "/articles/", class:"categories__item"
           - dato.article_categories.values.sort_by(&:name).each do |category|
             li = link_to category.name, "/categories/#{category.slug}", class:"categories__item"
 
