@@ -1,0 +1,5 @@
+.article-box__meta
+  .article-box__meta__author
+    = article.categories.map(&:name).join(", ")
+  .article-box__meta__date
+    = article.pub_date.strftime('%d, %b %Y')

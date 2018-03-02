@@ -1,15 +1,29 @@
 - content_for(:head)
   == dato_meta_tags(article)
 
-article.page
-  .page__category
-    = article.categories.map(&:name).join(", ")
-  h1.page__title = article.title
+.wrap.space--both-2
+  article.page
+    = partial "partials/article/meta", locals: {article: article}
 
-  .page__body
-    .formatted-content
-      = article.body
+    h2.article-box__title = article.title
 
-  .space--both-2
-    footer
-      .addthis_sharing_toolbox
+    = partial "partials/article/featured-image", locals: {article: article}
+
+    .article-box__body
+      .formatted-content
+        = article.body
+
+    - if article.documents.any?
+      .article-box__doc
+        h4.article-box__doc__title Documenti disponibili
+        - article.documents.each do |d|
+          = link_to d.doc.file.to_url,
+            target: "_blank",
+            class: "article-box__doc__item" do
+              i.icon--file
+              span = d.title
+
+    .space--both-2
+      footer.article-box__footer
+
+        .addthis_sharing_toolbox
