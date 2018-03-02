@@ -58,6 +58,11 @@ dato.tap do |dato|
       locals: { category: category }
     )
   end
+
+  {customer_service: dato.customer_service, publications: dato.publications, why:dato.why, cv:dato.cv, contacts:dato.contacts}.each do |slug, elem|
+    proxy "/#{slug}/index.html", "/templates/page.html", locals: { page: elem}
+  end
+
 end
 
 
