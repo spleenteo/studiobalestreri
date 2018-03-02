@@ -1,0 +1,32 @@
+.cover
+  position: relative
+  background-size: cover
+  background-position: center
+  // min-height: 240px
+  // +at-breakpoint(wall)
+  //   min-height: 360px
+  img
+    width: 100%
+    height: auto
+  &__title
+    font-size: 35px
+
+  &__subtitle
+    font-size: 16px
+
+
+.cover--rtl
+  direction: rtl
+
+  .cover__overlay__content
+    direction: ltr
+
+.cover--small
+  background-position: center bottom
+  padding-top: 0
+  .cover__overlay
+    min-height: 400px
+
+.cover--brown
+  .cover__overlay
+    background-color: rgba(134, 56, 27, 0.90)

@@ -10,7 +10,7 @@ activate :asset_hash
 activate :directory_indexes
 activate :pagination
 activate :inline_svg
-activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: false
+activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: true
 
 activate :external_pipeline,
   name: :webpack,
@@ -35,20 +35,34 @@ end
 
 proxy "/_redirects", "/templates/redirects.txt"
 
-# dato.tap do |dato|
-#   dato.articles.each do |article|
-#     proxy(
-#       '/articles/#{article.slug}.html',
-#       '/templates/article.html',
-#       locals: { article: article }
-#     )
-#   end
+dato.tap do |dato|
+  dato.articles.each do |article|
+    proxy(
+      "/articles/#{article.slug}/index.html",
+      "/templates/article.html",
+      locals: { article: article }
+    )
+  end
+  paginate(
+    dato.articles.sort_by(&:pub_date).reverse,
+    '/articles',
+    '/templates/articles.html',
+    suffix: "/:num/index",
+    per_page: 5
+  )
 
-#   paginate(
-#     dato.articles.sort_by(&:published_at).reverse,
-#     '/articles',
-#     '/templates/articles.html'
-#   )
+  # paginate(
+  #        dato.products.sort_by(&:name),
+  #        "/#{locale}/#{dato.products_page.slug}",
+  #        "/templates/products_page.html",
+  #        suffix: "/:num/index",
+  #        per_page: 5,
+  #        locals: { page: dato.products_page },
+  #        locale: locale
+  #      )
+
+end
+
 
 #   MULTILANG SAMPLES
 

@@ -1,0 +1,15 @@
+- content_for(:head)
+  == dato_meta_tags(article)
+
+article.page
+  .page__category
+    = article.categories.map(&:name).join(", ")
+  h1.page__title = article.title
+
+  .page__body
+    .formatted-content
+      = article.body
+
+  .space--both-2
+    footer
+      .addthis_sharing_toolbox

@@ -1,3 +1,22 @@
-footer.footer: .footer__inner
+footer.footer
   .wrap
-    = link_to "Made with DatoCMS", "https://datocms.com"
+    .footer__title Studio Balestreri
+    .footer__privacy
+      = link_to "privacy", "//www.iubenda.com/privacy-policy/7793512", class:"iubenda-nostyle no-brand iubenda-embed", title:"Privacy Policy"
+    .footer__credits
+      <a href="https://www.datocms.com" title="cms for static websites">Made with DatoCMS</a>
+
+  .side-bar__widget--newsletter
+    .side-bar__widget__title Sottosrivi la Newsletter
+
+    .side-bar__widget__body
+      form.form action="//studiobalestreri.us12.list-manage.com/subscribe/post?u=afa6d676b0ef1c7cb8640c72a&amp;id=275774841d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank"
+        legend.space--bottom-2
+        .form__field
+          input.input__field type="text" placeholder="Nome" name="FNAME" id="mce-FNAME"
+        .form__field
+          input.input__field type="text" placeholder="Cognome" name="LNAME" id="mce-LNAME"
+        .form__field
+          input.input__field type="email" placeholder="Email" name="EMAIL" id="mce-EMAIL" required="true"
+
+        button.button--rev Iscriviti

@@ -1,0 +1,24 @@
+- if article.present?
+  .article-box
+    .article-box__meta
+      .article-box__meta__author
+        = article.categories.map(&:name).join(", ")
+      .article-box__meta__date
+        = article.pub_date.strftime('%d, %b %Y')
+
+    h2.article-box__title
+      = link_to article.title, "/articles/#{article.slug}"
+
+    - if article.featured_image.present?
+      = link_to "/articles/#{article.slug}" do
+        = image_tag article.featured_image.file.width(800).height(300).fit("crop").crop("faces").format('pjpg').to_url, class: "article-box__image"
+
+    .article-box__abstract
+      .formatted-content
+        - if article.abstract.present?
+          = article.abstract
+        - else
+          = Truncato.truncate article.body, max_length: 500, count_tags: false, tail: "... (continua)"
+
+    .article-box__footer
+      = link_to "Leggi tutto", "/articles/#{article.slug}", class: "button button--small"

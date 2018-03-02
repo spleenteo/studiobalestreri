@@ -1,0 +1,35 @@
+.header
+  border-bottom: 1px solid $border-color
+  background-color: $base-bg-color
+
+.header__logo
+  position: absolute
+  +font-size(delta)
+  line-height: 50px
+  +padding-left(2)
+
+  a
+    text-transform: capitalize
+    text-decoration: none
+    display: inline-block
+
+.header__menu
+  text-align: center
+  +heading-font-family
+  font-weight: 400
+  line-height: 50px
+  display: none
+
+  +at-breakpoint(desk)
+    display: block
+
+.header__menu__item
+  +horizontal-padding(1)
+  border-bottom: 3px solid transparent
+
+  &:hover
+    text-align: center
+    border-bottom: 3px solid $green-color
+  a
+    text-decoration: none
+    text-transform: uppercase

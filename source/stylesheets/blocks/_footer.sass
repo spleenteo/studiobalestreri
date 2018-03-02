@@ -1,0 +1,17 @@
+.footer
+  width: 100%
+  text-align: center
+  color: $white-color
+  background-color: $black-color
+  +font-size(milli)
+  +vertical-padding(1)
+  position: absolute
+  a
+    color: $white-color
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+
+  &__title, &__privacy
+    display: inline-block
+    +horizontal-padding(2)

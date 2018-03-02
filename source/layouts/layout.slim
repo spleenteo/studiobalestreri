@@ -2,7 +2,8 @@ doctype 5
 html lang=I18n.locale
   head = partial "partials/head"
   body
+    = partial 'partials/header'
+    = partial 'partials/side_bar'
     = yield
-
     = partial "partials/footer"
     = partial "partials/js_includes"

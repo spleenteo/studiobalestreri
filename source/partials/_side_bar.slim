@@ -1,0 +1,29 @@
+.side-bar
+  .side-bar__toggler.js-side-bar-toggler Menu
+
+  .side-bar__inner
+    .side-bar__m-menu
+      .side-bar__widget
+        .side-bar__widget__title Studio Balestreri
+        .side-bar__widget__body
+          ul
+            li = link_to "Home", "/", class:"categories__item"
+            li = link_to "Servizi", "/customer_service", class:"categories__item"
+            li = link_to "Pubblicazioni", "/publications", class:"categories__item"
+            li = link_to "Perché questo sito", "/why", class:"categories__item"
+            li = link_to "CV", "/cv", class:"categories__item"
+            li = link_to "Contatti", "/contacts"
+
+    .side-bar__widget
+      .side-bar__widget__title Categorie
+      .side-bar__widget__body
+        ul
+          - dato.article_categories.values.sort_by(&:name).each do |category|
+            li = link_to category.name, "/categories/#{category.slug}", class:"categories__item"
+
+    .side-bar__widget
+      .side-bar__widget__title Link utili
+      .side-bar__widget__body
+        ul
+          - dato.links.each do |l|
+            li = link_to l.name, "#{l.url}", target:"_blank"

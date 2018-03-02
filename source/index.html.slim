@@ -1,1 +1,13 @@
-h1.alpha Hi there!
+- content_for(:head)
+  == dato_meta_tags(dato.home)
+
+.claim
+  .wrap
+    = dato.home.claim
+
+.wrap
+  .page
+    - dato.articles.sort_by(&:pub_date).reverse.take(15).each do |article|
+      = partial "partials/article-box", locals: {article: article}
+
+    = link_to "Vedi tutti gli articoli", "/articles", class: "button--primary"

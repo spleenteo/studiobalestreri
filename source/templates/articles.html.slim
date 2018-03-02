@@ -1,0 +1,18 @@
+h1.alpha Archivio articoli / Pagina #{pager.current_page}
+
+-if items.any?
+  - items.each do |article|
+    .page
+      .page__category
+        = "#{article.pub_date.strftime('%d, %b %Y')} - #{article.categories.map(&:name).join(", ")}"
+      h2.page__title
+        a href="/articles/#{article.slug}" = article.title
+
+      .page__details
+        .page__author di Alberto Balestreri
+
+      .page__body
+        .formatted-content
+          = article.abstract
+
+= partial "partials/paginate", locals: { pager: pager }
