@@ -1,17 +1,46 @@
 .footer
-  width: 100%
   text-align: center
   color: $white-color
-  background-color: $black-color
-  +font-size(milli)
-  +vertical-padding(1)
+  background-color: $green-color
+  +vertical-padding(2)
   position: absolute
+  width: 100%
+  height: 560px
+
   a
     color: $white-color
     text-decoration: none
     &:hover
       text-decoration: underline
 
-  &__title, &__privacy
-    display: inline-block
-    +horizontal-padding(2)
+  +at-breakpoint(tab)
+    height: 440px
+    background-image: url(/images/logo.png)
+    background-position: bottom right
+    background-attachment: fixed
+    background-repeat: no-repeat
+
+  +at-breakpoint(tab)
+    height: 490px
+
+
+.footer__title
+  +font-size(beta)
+  text-transform: uppercase
+  +heading-font-family
+  font-weight: 400
+
+.footer__newsletter
+  +vertical-margin(2)
+
+  +at-breakpoint(tab)
+    width: 40%
+
+.footer__privacy, .footer__credits
+  +horizontal-padding(2)
+
+  +at-breakpoint(tab)
+    text-align: left
+
+  +at-breakpoint(desk)
+    text-align: center
