@@ -20,9 +20,10 @@
 
   &.is-active
     left: 0
+    box-shadow: $gray-color 11px 0 36px 0px
 
     .side-bar__toggler
-      right: -28px
+      right: -20px
       box-shadow: none
       background-color: $base-body-color
       color: $white-color
@@ -50,13 +51,13 @@
   +heading-font-family
 
 .side-bar__widget__body
-  +font-size(milli)
   display: block
   text-decoration: none
 
   a
-    +font-size(smallprint)
     text-decoration: none
+    display: block
+    +margin-bottom(1)
     &:hover
       color: $green-color
       text-decoration: underline
@@ -65,12 +66,13 @@
   transition: all 1s $material-ease
   position: absolute
   top: 90px
-  right: -56px
+  right: -33px
   cursor: pointer
   box-shadow: $black-color 0 0 200px 0
   line-height: 50px
   padding: 0 10px
-  background-color: $base-bg-color
+  background-color: $black-color
+  color: $white-color
   +sans-font-family
 
   +at-breakpoint(desk)
